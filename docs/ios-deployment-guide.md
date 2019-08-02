@@ -5,18 +5,13 @@
 
 ## Build Preparation
 
-First of all, you will need the following certificates to build an App.
+First of all, you will need the following certificates or stuff to sign or build an App.
 
 1. [iOS Distribution Certificate](#distribution-certificate)
 2. [Your own developer certificate](#developer-certificate)
 3. [App Identifier](#app-identifier)
 4. [A valid testing devices](#register-testing-devices)
 5. [Development Provisioning Profile and Production Provisioning Profile](#provisioning-profiles)
-6. Download (1), (2), (4) and store those certifiates and profiles into your `Keychain Access`
-7. Setup for XCode
-8. Ready a iTunes Connect App
-
-After that, you can archive your App and upload to the iTunes Connect for TestFlight or release.
 
 ---
 
@@ -100,3 +95,32 @@ To seperate the `DEV` and `PROD` in build stage, we will use different profiles 
 > ![img](./img/ios-prod-profile-003.jpg)
 8. Name, generate, download and open it
 > ![img](./img/ios-prod-profile-004.jpg)
+
+---
+
+## Build Steps
+
+Then, you will need to follow these steps to build an App:
+
+1. Download [iOS Distribution Certificate](#distribution-certificate), [Developer Profile](#developer-profile) and [Production Profile](#production-profile) and  and store those certificates and profiles into your `Keychain Access`
+2. Ready a iTunes Connect App
+3. Setup XCode
+ - Type the correct bundle identifier
+ - Select the correct signing certificates for debug and release
+4. Select `Generic iOS Device` in XCode
+5. Select `Product > Archive`
+
+---
+
+## Deploy Steps
+
+After that, you can select your archived binary to upload to the iTunes Connect for TestFlight or ready to release.
+
+1. Open `Organizer` by selecting `Windows > Organizer`
+2. Select your App from left bar
+3. Select your build
+4. Click `Distribute App`
+5. Pick `iOS App Store` and next
+6. Select `Upload` and next
+7. Select correct the [iOS Distribution Certificate](#distribution-certificate) and [Production Profile](#production-profile)
+8. Upload to iTunes Connect
