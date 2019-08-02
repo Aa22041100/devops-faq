@@ -7,17 +7,20 @@
 
 First of all, you will need the following certificates to build an App.
 
-1. [iOS Distribution Certificate](#get-distribution-certificate)
-2. [Your own developer certificate](#get-developer-certificate)
-3. [App Identifier](#get-app-identifier)
+1. [iOS Distribution Certificate](#distribution-certificate)
+2. [Your own developer certificate](#developer-certificate)
+3. [App Identifier](#app-identifier)
 4. [A valid testing devices](#register-testing-devices)
-5. [Development Provisioning Profile and Production Provisioning Profile]()
-6. Download (1), (2), (4) and open those certifiates and profiles
-7. Restart XCode
+5. [Development Provisioning Profile and Production Provisioning Profile](#provisioning-profiles)
+6. Download (1), (2), (4) and store those certifiates and profiles into your `Keychain Access`
+7. Setup for XCode
+8. Ready a iTunes Connect App
+
+After that, you can archive your App and upload to the iTunes Connect.
 
 ---
 
-## Get Distribution Certificate
+### Distribution Certificate
 
 1. Login to [Apple Developer](https://developer.apple.com)
 2. Goto [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/certificates/list)
@@ -26,7 +29,7 @@ First of all, you will need the following certificates to build an App.
 
 ---
 
-## Get Developer Certificate
+### Developer Certificate
 
 1. Login to [Apple Developer](https://developer.apple.com)
 2. Goto [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/certificates/list)
@@ -41,7 +44,7 @@ First of all, you will need the following certificates to build an App.
 
 ---
 
-## Get App Identifier
+### App Identifier
 
 1. Login to [Apple Developer](https://developer.apple.com)
 2. Goto [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/certificates/list)
@@ -55,20 +58,45 @@ First of all, you will need the following certificates to build an App.
 
 ---
 
-## Register Testing Devices
+### Provisioning Profiles
 
-> `TODO`
+To seperate the `DEV` and `PROD` in build stage, we will use different profiles to sign our App.
 
----
+> **Here is the table which shows the differents between `Development Profile` and `Production Profile`**
+> 
+> 
+> | Certificate Type         | Build on valid test devices | Build on simulator  | Deploy to TestFlight | Deploy to Store|
+> | ------------------------ |:---------------------------:|:-------------------:|:--------------------:|:--------------:|
+> | Development Profile      |              O              |          O          |           X          |        X       |
+> | Production Profile       |              O              |          O          |           O          |        O       |
 
-## Get Provisioning Profiles
+#### Development Profile
 
-For seperating the `DEV` and `PROD` in build stage, we will use different profiles to sign our App.
+1. Login to [Apple Developer](https://developer.apple.com)
+2. Goto [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/certificates/list)
+3. Click `Profiles` tag
+4. Click `+`
+5. ↓ Select `iOS App Development` under `Development` section and continue
+> ![img](./img/ios-dev-profile-001.jpg)
+6. ↓ Select the `App ID` which you created in the previous step and continue
+> ![img](./img/ios-dev-profile-002.jpg)
+7. ↓ Select who can use this profile to sign App and continue
+> ![img](./img/ios-dev-profile-003.jpg)
+8. Name it and continue
+> ![img](./img/ios-dev-profile-004.jpg)
+9. Download and open it
 
-### Differents Between Development Profile and Production Profile
+#### Production Profile
 
-
-| Certificate Type         | Build on valid test devices | Build on simulator  | Deploy to TestFlight | Deploy to Store|
-| ------------------------ |:---------------------------:|:-------------------:|:--------------------:|:--------------:|
-| Development Profile      |              O              |          O          |           X          |        X       |
-| Production Profile       |              O              |          O          |           O          |        O       |
+1. Login to [Apple Developer](https://developer.apple.com)
+2. Goto [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/certificates/list)
+3. Click `Profiles` tag
+4. Click `+`
+5. ↓ Select `App Store` under `Distribution` section and continue
+> ![img](./img/ios-prod-profile-001.jpg)
+6. ↓ Select the `App ID` which you created in the previous step and continue
+> ![img](./img/ios-prod-profile-002.jpg)
+7. ↓ Select `iOS Distribution Certificate` (should be `ONLY ONE` certificate here, if not please find senior programmer for help)
+> ![img](./img/ios-prod-profile-003.jpg)
+8. Name, generate, download and open it
+> ![img](./img/ios-prod-profile-004.jpg)
