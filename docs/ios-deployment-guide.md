@@ -1,5 +1,5 @@
 # iOS Deployment Guide
-> This guideline is used to show what you need to deploy an App to AppleStore.
+> This guideline is used to guide you how to deploy an App to AppleStore.
 
 ---
 
@@ -16,7 +16,7 @@ First of all, you will need the following certificates to build an App.
 7. Setup for XCode
 8. Ready a iTunes Connect App
 
-After that, you can archive your App and upload to the iTunes Connect.
+After that, you can archive your App and upload to the iTunes Connect for TestFlight or release.
 
 ---
 
@@ -62,7 +62,7 @@ After that, you can archive your App and upload to the iTunes Connect.
 
 To seperate the `DEV` and `PROD` in build stage, we will use different profiles to sign our App.
 
-> **Here is the table which shows the differents between `Development Profile` and `Production Profile`**
+> **Here is the table that shows the differents between `Development Profile` and `Production Profile`**
 > 
 > 
 > | Certificate Type         | Build on valid test devices | Build on simulator  | Deploy to TestFlight | Deploy to Store|
